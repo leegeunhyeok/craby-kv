@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { StatusBar, StyleSheet, Text, View, ActivityIndicator, ScrollView, Pressable } from 'react-native';
+import { StatusBar, StyleSheet, Text, View, ActivityIndicator, ScrollView, Pressable, Alert } from 'react-native';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import { KV } from 'craby-kv';
 
@@ -8,14 +8,20 @@ const LATEST_KEY = 'test-key-latest';
 const VALUE = 'Hello, world!';
 const ITERATIONS = 1000;
 
+KV.initialize();
+
 function App() {
-  const latestValue = Date.now().toString();
+  const latestValue = new Date().toISOString();
   const [benchmarkA, setBenchmarkA] = useState(null);
   const [isCalculating, setIsCalculating] = useState(true);
 
+  const handleSetValue = () => {
+    KV.set(LATEST_KEY, latestValue);
+    Alert.alert('Value set successfully!', 'Restart the app to load the changes');
+  };
+
   useEffect(() => {
     const prepare = () => {
-      KV.clear();
       KV.set(KEY, VALUE);
     };
 
@@ -66,10 +72,10 @@ function App() {
 
           <View style={styles.card}>
             <Text style={styles.label}>Value</Text>
-            <Text style={styles.hash}>{KV.get(LATEST_KEY) ?? 'null'}</Text>
+            <Text style={styles.hash}>{JSON.stringify(KV.get(LATEST_KEY))}</Text>
           </View>
 
-          <Pressable onPress={() => KV.set(LATEST_KEY, latestValue)}>
+          <Pressable style={styles.button} onPress={handleSetValue}>
             <Text style={styles.buttonText}>Set Value: {latestValue}</Text>
           </Pressable>
 
@@ -87,7 +93,7 @@ function App() {
             ) : (
               <>
                 <View style={[styles.benchmarkCard, styles.libraryA]}>
-                  <Text style={styles.libraryName}>craby-sha256</Text>
+                  <Text style={styles.libraryName}>craby-kv</Text>
                   <Text style={styles.benchmarkValue}>
                     {benchmarkA.avg.toFixed(4)} ms
                   </Text>
@@ -152,15 +158,17 @@ const styles = StyleSheet.create({
     lineHeight: 18,
     color: '#000000',
   },
-  buttonText: {
-    fontSize: 16,
-    fontWeight: '500',
-    color: '#000000',
-    textAlign: 'center',
+  button: {
     backgroundColor: '#4a90e2',
     padding: 10,
     borderRadius: 8,
-    marginBottom: 16,
+    marginVertical: 16,
+  },
+  buttonText: {
+    fontSize: 16,
+    fontWeight: '500',
+    textAlign: 'center',
+    color: '#ffffff',
   },
   arrow: {
     alignItems: 'center',
