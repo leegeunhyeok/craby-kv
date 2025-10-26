@@ -1,0 +1,16 @@
+[package]
+name = "craby_kv"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+anyhow = "1.0.99"
+cxx = "1.0.180"
+kv = "0.24.0"
+
+[build-dependencies]
+cxx-build = "1.0.180"
+
+[lib]
+name = "crabykv"
+crate-type = ["staticlib"]

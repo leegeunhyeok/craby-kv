@@ -1,0 +1,3 @@
+[project]
+name = "craby_kv"
+source_dir = "src"
