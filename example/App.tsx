@@ -1,34 +1,70 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useLayoutEffect } from 'react';
 import { StatusBar, StyleSheet, Text, View, ActivityIndicator, ScrollView, Pressable, Alert } from 'react-native';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import { KV } from 'craby-kv';
+import { createMMKV } from 'react-native-mmkv';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const KEY = 'test-key';
 const LATEST_KEY = 'test-key-latest';
 const VALUE = 'Hello, world!';
 const ITERATIONS = 1000;
 
-KV.initialize();
+const MMKV = createMMKV();
+
+function useClear() {
+  const [isCleared, setIsCleared] = useState(false);
+
+  useEffect(() => {
+    async function perform() {
+      MMKV.remove(KEY);
+      KV.remove(KEY);
+      await AsyncStorage.removeItem(KEY);
+    }
+
+    perform().then(() => {
+      setIsCleared(true);
+    });
+  }, []);
+
+  return isCleared;
+}
+
+function prepare() {
+  return new Promise<void>(resolve => setTimeout(() => {
+    resolve();
+  }, 500));
+}
 
 function App() {
-  const latestValue = new Date().toISOString();
+  const [latestValue, setLatestValue] = useState('');
   const [benchmarkA, setBenchmarkA] = useState(null);
+  const [benchmarkB, setBenchmarkB] = useState(null);
+  const [benchmarkC, setBenchmarkC] = useState(null);
   const [isCalculating, setIsCalculating] = useState(true);
+  const isCleared = useClear();
 
   const handleSetValue = () => {
     KV.set(LATEST_KEY, latestValue);
-    Alert.alert('Value set successfully!', 'Restart the app to load the changes');
+    Alert.alert('Value updated successfully!', 'Restart the app to load the changes:\n' + JSON.stringify(KV.get(LATEST_KEY)));
   };
 
-  useEffect(() => {
-    const prepare = () => {
-      KV.set(KEY, VALUE);
-    };
+  useLayoutEffect(() => {
+    setLatestValue(new Date().toISOString());
+  }, []);
 
-    const runBenchmark = () => {
+  useEffect(() => {
+    if (!isCleared) {
+      return;
+    }
+
+    const runBenchmark = async () => {
+
       // A: craby-kv
+      await prepare();
       const startTimeA = performance.now();
       for (let i = 0; i < ITERATIONS; i++) {
+        KV.set(KEY, VALUE + i);
         KV.get(KEY);
       }
       const endTimeA = performance.now();
@@ -40,14 +76,43 @@ function App() {
         total: totalTimeA,
       });
 
+      // B: react-native-mmkv
+      await prepare();
+      const startTimeB = performance.now();
+      for (let i = 0; i < ITERATIONS; i++) {
+        MMKV.set(KEY, VALUE + i);
+        MMKV.getString(KEY);
+      }
+      const endTimeB = performance.now();
+      const totalTimeB = endTimeB - startTimeB;
+      const averageB = totalTimeB / ITERATIONS;
+
+      setBenchmarkB({
+        avg: averageB,
+        total: totalTimeB,
+      });
+
+      // C: @react-native-async-storage/async-storage
+      await prepare();
+      const startTimeC = performance.now();
+      for (let i = 0; i < ITERATIONS; i++) {
+        await AsyncStorage.setItem(KEY, VALUE + i);
+        await AsyncStorage.getItem(KEY);
+      }
+      const endTimeC = performance.now();
+      const totalTimeC = endTimeC - startTimeC;
+      const averageC = totalTimeC / ITERATIONS;
+
+      setBenchmarkC({
+        avg: averageC,
+        total: totalTimeC,
+      });
+
       setIsCalculating(false);
     };
 
-    setTimeout(() => {
-      prepare();
-      runBenchmark();
-    }, 100);
-  }, []);
+    setTimeout(runBenchmark, 100);
+  }, [isCleared]);
 
   return (
     <SafeAreaProvider>
@@ -76,12 +141,12 @@ function App() {
           </View>
 
           <Pressable style={styles.button} onPress={handleSetValue}>
-            <Text style={styles.buttonText}>Set Value: {latestValue}</Text>
+            <Text style={styles.buttonText}>Set value</Text>
           </Pressable>
 
           <View style={styles.benchmarkSection}>
             <Text style={styles.benchmarkTitle}>Performance Comparison</Text>
-            <Text style={styles.benchmarkDescription}>(Get value {ITERATIONS.toLocaleString()} times)</Text>
+            <Text style={styles.benchmarkDescription}>(Get / Set value {ITERATIONS.toLocaleString()} times)</Text>
 
             {isCalculating ? (
               <View style={styles.loadingContainer}>
@@ -99,6 +164,26 @@ function App() {
                   </Text>
                   <Text style={styles.benchmarkDetail}>
                     Total: {benchmarkA.total.toFixed(2)} ms
+                  </Text>
+                </View>
+
+                <View style={[styles.benchmarkCard, styles.libraryB]}>
+                  <Text style={styles.libraryName}>react-native-mmkv</Text>
+                  <Text style={styles.benchmarkValue}>
+                    {benchmarkB.avg.toFixed(4)} ms
+                  </Text>
+                  <Text style={styles.benchmarkDetail}>
+                    Total: {benchmarkB.total.toFixed(2)} ms
+                  </Text>
+                </View>
+
+                <View style={[styles.benchmarkCard, styles.libraryC]}>
+                  <Text style={styles.libraryName}>@react-native-async-storage/async-storage</Text>
+                  <Text style={styles.benchmarkValue}>
+                    {benchmarkC.avg.toFixed(4)} ms
+                  </Text>
+                  <Text style={styles.benchmarkDetail}>
+                    Total: {benchmarkC.total.toFixed(2)} ms
                   </Text>
                 </View>
               </>
@@ -224,14 +309,14 @@ const styles = StyleSheet.create({
     borderColor: '#4a90e2',
   },
   libraryB: {
-    backgroundColor: '#f0e8f8',
+    backgroundColor: '#fde0e0',
     borderWidth: 1.5,
-    borderColor: '#9b59b6',
+    borderColor: '#ff7377',
   },
   libraryC: {
-    backgroundColor: '#dff5d3',
+    backgroundColor: '#fffcc9',
     borderWidth: 1.5,
-    borderColor: '#77dd77',
+    borderColor: '#fff44f',
   },
   libraryName: {
     fontSize: 14,
