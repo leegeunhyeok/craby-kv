@@ -60,13 +60,13 @@
   },
   "homepage": "https://github.com/leegeunhyeok/craby-kv#readme",
   "dependencies": {
-    "craby-modules": "0.1.0-beta.4"
+    "craby-modules": "^0.1.0-beta.6"
   },
   "devDependencies": {
     "@biomejs/biome": "2.2.7",
     "@react-native-community/cli-types": "^20.0.2",
     "@types/react": "^19.0.0",
-    "crabygen": "0.1.0-beta.4",
+    "crabygen": "^0.1.0-beta.6",
     "react": "19.1.1",
     "react-native": "0.82.1",
     "tsdown": "^0.15.10",

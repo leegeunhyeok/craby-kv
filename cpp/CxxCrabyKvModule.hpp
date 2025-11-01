@@ -9,6 +9,7 @@
 
 namespace craby {
 namespace crabykv {
+namespace modules {
 
 class JSI_EXPORT CxxCrabyKvModule : public facebook::react::TurboModule {
 public:
@@ -61,7 +62,7 @@ public:
 
 protected:
   std::shared_ptr<facebook::react::CallInvoker> callInvoker_;
-  std::shared_ptr<craby::bridging::CrabyKv> module_;
+  std::shared_ptr<craby::crabykv::bridging::CrabyKv> module_;
   std::atomic<bool> invalidated_{false};
   std::atomic<size_t> nextListenerId_{0};
   std::mutex listenersMutex_;
@@ -69,8 +70,9 @@ protected:
     std::string,
     std::unordered_map<size_t, std::shared_ptr<facebook::jsi::Function>>>
     listenersMap_;
-  std::shared_ptr<craby::utils::ThreadPool> threadPool_;
+  std::shared_ptr<craby::crabykv::utils::ThreadPool> threadPool_;
 };
 
+} // namespace modules
 } // namespace crabykv
 } // namespace craby

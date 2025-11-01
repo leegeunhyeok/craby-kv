@@ -1,11 +1,10 @@
 use std::path::Path;
 
+use craby::{prelude::*, throw};
 use sled::Db;
 
-use crate::context::*;
 use crate::ffi::bridging::*;
 use crate::generated::*;
-use crate::types::*;
 
 pub struct CrabyKv {
     ctx: Context,
@@ -18,13 +17,10 @@ impl CrabyKv {
     }
 }
 
+#[craby_module]
 impl CrabyKvSpec for CrabyKv {
     fn new(ctx: Context) -> Self {
         CrabyKv { ctx, db: None }
-    }
-
-    fn id(&self) -> usize {
-        self.ctx.id
     }
 
     fn initialize(&mut self) -> Void {

@@ -8,6 +8,7 @@ using namespace facebook;
 
 namespace craby {
 namespace crabykv {
+namespace modules {
 
 std::string CxxCrabyKvModule::dataPath = std::string();
 
@@ -16,13 +17,13 @@ CxxCrabyKvModule::CxxCrabyKvModule(
     : TurboModule(CxxCrabyKvModule::kModuleName, jsInvoker) {
   // No signals
   callInvoker_ = std::move(jsInvoker);
-  module_ = std::shared_ptr<craby::bridging::CrabyKv>(
-    craby::bridging::createCrabyKv(
+  module_ = std::shared_ptr<craby::crabykv::bridging::CrabyKv>(
+    craby::crabykv::bridging::createCrabyKv(
       reinterpret_cast<uintptr_t>(this),
       rust::Str(dataPath.data(), dataPath.size())).into_raw(),
-    [](craby::bridging::CrabyKv *ptr) { rust::Box<craby::bridging::CrabyKv>::from_raw(ptr); }
+    [](craby::crabykv::bridging::CrabyKv *ptr) { rust::Box<craby::crabykv::bridging::CrabyKv>::from_raw(ptr); }
   );
-  threadPool_ = std::make_shared<craby::utils::ThreadPool>(10);
+  threadPool_ = std::make_shared<craby::crabykv::utils::ThreadPool>(10);
   methodMap_["clear"] = MethodMetadata{0, &CxxCrabyKvModule::clear};
   methodMap_["contains"] = MethodMetadata{1, &CxxCrabyKvModule::contains};
   methodMap_["get"] = MethodMetadata{1, &CxxCrabyKvModule::get};
@@ -64,13 +65,13 @@ jsi::Value CxxCrabyKvModule::clear(jsi::Runtime &rt,
       throw jsi::JSError(rt, "Expected 0 argument");
     }
 
-    craby::bridging::clear(*it_);
+    craby::crabykv::bridging::clear(*it_);
 
     return jsi::Value::undefined();
   } catch (const jsi::JSError &err) {
     throw err;
   } catch (const std::exception &err) {
-    throw jsi::JSError(rt, craby::utils::errorMessage(err));
+    throw jsi::JSError(rt, craby::crabykv::utils::errorMessage(err));
   }
 }
 
@@ -89,13 +90,13 @@ jsi::Value CxxCrabyKvModule::contains(jsi::Runtime &rt,
 
     auto arg0$raw = args[0].asString(rt).utf8(rt);
     auto arg0 = rust::Str(arg0$raw.data(), arg0$raw.size());
-    auto ret = craby::bridging::contains(*it_, arg0);
+    auto ret = craby::crabykv::bridging::contains(*it_, arg0);
 
     return react::bridging::toJs(rt, ret);
   } catch (const jsi::JSError &err) {
     throw err;
   } catch (const std::exception &err) {
-    throw jsi::JSError(rt, craby::utils::errorMessage(err));
+    throw jsi::JSError(rt, craby::crabykv::utils::errorMessage(err));
   }
 }
 
@@ -114,13 +115,13 @@ jsi::Value CxxCrabyKvModule::get(jsi::Runtime &rt,
 
     auto arg0$raw = args[0].asString(rt).utf8(rt);
     auto arg0 = rust::Str(arg0$raw.data(), arg0$raw.size());
-    auto ret = craby::bridging::get(*it_, arg0);
+    auto ret = craby::crabykv::bridging::get(*it_, arg0);
 
     return react::bridging::toJs(rt, ret);
   } catch (const jsi::JSError &err) {
     throw err;
   } catch (const std::exception &err) {
-    throw jsi::JSError(rt, craby::utils::errorMessage(err));
+    throw jsi::JSError(rt, craby::crabykv::utils::errorMessage(err));
   }
 }
 
@@ -137,13 +138,13 @@ jsi::Value CxxCrabyKvModule::initialize(jsi::Runtime &rt,
       throw jsi::JSError(rt, "Expected 0 argument");
     }
 
-    craby::bridging::initialize(*it_);
+    craby::crabykv::bridging::initialize(*it_);
 
     return jsi::Value::undefined();
   } catch (const jsi::JSError &err) {
     throw err;
   } catch (const std::exception &err) {
-    throw jsi::JSError(rt, craby::utils::errorMessage(err));
+    throw jsi::JSError(rt, craby::crabykv::utils::errorMessage(err));
   }
 }
 
@@ -160,13 +161,13 @@ jsi::Value CxxCrabyKvModule::keys(jsi::Runtime &rt,
       throw jsi::JSError(rt, "Expected 0 argument");
     }
 
-    auto ret = craby::bridging::keys(*it_);
+    auto ret = craby::crabykv::bridging::keys(*it_);
 
     return react::bridging::toJs(rt, ret);
   } catch (const jsi::JSError &err) {
     throw err;
   } catch (const std::exception &err) {
-    throw jsi::JSError(rt, craby::utils::errorMessage(err));
+    throw jsi::JSError(rt, craby::crabykv::utils::errorMessage(err));
   }
 }
 
@@ -185,13 +186,13 @@ jsi::Value CxxCrabyKvModule::remove(jsi::Runtime &rt,
 
     auto arg0$raw = args[0].asString(rt).utf8(rt);
     auto arg0 = rust::Str(arg0$raw.data(), arg0$raw.size());
-    craby::bridging::remove(*it_, arg0);
+    craby::crabykv::bridging::remove(*it_, arg0);
 
     return jsi::Value::undefined();
   } catch (const jsi::JSError &err) {
     throw err;
   } catch (const std::exception &err) {
-    throw jsi::JSError(rt, craby::utils::errorMessage(err));
+    throw jsi::JSError(rt, craby::crabykv::utils::errorMessage(err));
   }
 }
 
@@ -212,13 +213,13 @@ jsi::Value CxxCrabyKvModule::set(jsi::Runtime &rt,
     auto arg0 = rust::Str(arg0$raw.data(), arg0$raw.size());
     auto arg1$raw = args[1].asString(rt).utf8(rt);
     auto arg1 = rust::Str(arg1$raw.data(), arg1$raw.size());
-    craby::bridging::set(*it_, arg0, arg1);
+    craby::crabykv::bridging::set(*it_, arg0, arg1);
 
     return jsi::Value::undefined();
   } catch (const jsi::JSError &err) {
     throw err;
   } catch (const std::exception &err) {
-    throw jsi::JSError(rt, craby::utils::errorMessage(err));
+    throw jsi::JSError(rt, craby::crabykv::utils::errorMessage(err));
   }
 }
 
@@ -235,15 +236,16 @@ jsi::Value CxxCrabyKvModule::size(jsi::Runtime &rt,
       throw jsi::JSError(rt, "Expected 0 argument");
     }
 
-    auto ret = craby::bridging::size(*it_);
+    auto ret = craby::crabykv::bridging::size(*it_);
 
     return react::bridging::toJs(rt, ret);
   } catch (const jsi::JSError &err) {
     throw err;
   } catch (const std::exception &err) {
-    throw jsi::JSError(rt, craby::utils::errorMessage(err));
+    throw jsi::JSError(rt, craby::crabykv::utils::errorMessage(err));
   }
 }
 
+} // namespace modules
 } // namespace crabykv
 } // namespace craby

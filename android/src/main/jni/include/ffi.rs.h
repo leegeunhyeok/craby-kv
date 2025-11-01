@@ -966,26 +966,29 @@ std::size_t align_of() {
 #endif
 
 namespace craby {
-  namespace bridging {
-    struct NullableString;
-    struct CrabyKv;
+  namespace crabykv {
+    namespace bridging {
+      struct NullableString;
+      struct CrabyKv;
+    }
   }
 }
 
 namespace craby {
+namespace crabykv {
 namespace bridging {
-#ifndef CXXBRIDGE1_STRUCT_craby$bridging$NullableString
-#define CXXBRIDGE1_STRUCT_craby$bridging$NullableString
+#ifndef CXXBRIDGE1_STRUCT_craby$crabykv$bridging$NullableString
+#define CXXBRIDGE1_STRUCT_craby$crabykv$bridging$NullableString
 struct NullableString final {
   bool null CXX_DEFAULT_VALUE(false);
   ::rust::String val;
 
   using IsRelocatable = ::std::true_type;
 };
-#endif // CXXBRIDGE1_STRUCT_craby$bridging$NullableString
+#endif // CXXBRIDGE1_STRUCT_craby$crabykv$bridging$NullableString
 
-#ifndef CXXBRIDGE1_STRUCT_craby$bridging$CrabyKv
-#define CXXBRIDGE1_STRUCT_craby$bridging$CrabyKv
+#ifndef CXXBRIDGE1_STRUCT_craby$crabykv$bridging$CrabyKv
+#define CXXBRIDGE1_STRUCT_craby$crabykv$bridging$CrabyKv
 struct CrabyKv final : public ::rust::Opaque {
   ~CrabyKv() = delete;
 
@@ -996,26 +999,27 @@ private:
     static ::std::size_t align() noexcept;
   };
 };
-#endif // CXXBRIDGE1_STRUCT_craby$bridging$CrabyKv
+#endif // CXXBRIDGE1_STRUCT_craby$crabykv$bridging$CrabyKv
 
-::rust::Box<::craby::bridging::CrabyKv> createCrabyKv(::std::size_t id, ::rust::Str data_path) noexcept;
+::rust::Box<::craby::crabykv::bridging::CrabyKv> createCrabyKv(::std::size_t id, ::rust::Str data_path) noexcept;
 
-void clear(::craby::bridging::CrabyKv &it_);
+void clear(::craby::crabykv::bridging::CrabyKv &it_);
 
-bool contains(::craby::bridging::CrabyKv &it_, ::rust::Str key);
+bool contains(::craby::crabykv::bridging::CrabyKv &it_, ::rust::Str key);
 
-::craby::bridging::NullableString get(::craby::bridging::CrabyKv &it_, ::rust::Str key);
+::craby::crabykv::bridging::NullableString get(::craby::crabykv::bridging::CrabyKv &it_, ::rust::Str key);
 
-void initialize(::craby::bridging::CrabyKv &it_);
+void initialize(::craby::crabykv::bridging::CrabyKv &it_);
 
-::rust::Vec<::rust::String> keys(::craby::bridging::CrabyKv &it_);
+::rust::Vec<::rust::String> keys(::craby::crabykv::bridging::CrabyKv &it_);
 
-void remove(::craby::bridging::CrabyKv &it_, ::rust::Str key);
+void remove(::craby::crabykv::bridging::CrabyKv &it_, ::rust::Str key);
 
-void set(::craby::bridging::CrabyKv &it_, ::rust::Str key, ::rust::Str value);
+void set(::craby::crabykv::bridging::CrabyKv &it_, ::rust::Str key, ::rust::Str value);
 
-double size(::craby::bridging::CrabyKv &it_);
+double size(::craby::crabykv::bridging::CrabyKv &it_);
 } // namespace bridging
+} // namespace crabykv
 } // namespace craby
 
 #ifdef __clang__

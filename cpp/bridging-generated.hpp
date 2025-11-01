@@ -63,19 +63,19 @@ struct Bridging<rust::Vec<T>> {
 };
 
 template <>
-struct Bridging<craby::bridging::NullableString> {
-  static craby::bridging::NullableString fromJs(jsi::Runtime &rt, const jsi::Value& value, std::shared_ptr<CallInvoker> callInvoker) {
+struct Bridging<craby::crabykv::bridging::NullableString> {
+  static craby::crabykv::bridging::NullableString fromJs(jsi::Runtime &rt, const jsi::Value& value, std::shared_ptr<CallInvoker> callInvoker) {
     if (value.isNull()) {
-      return craby::bridging::NullableString{true, rust::String()};
+      return craby::crabykv::bridging::NullableString{true, rust::String()};
     }
 
     auto val = react::bridging::fromJs<rust::String>(rt, value, callInvoker);
-    auto ret = craby::bridging::NullableString{false, val};
+    auto ret = craby::crabykv::bridging::NullableString{false, val};
 
     return ret;
   }
 
-  static jsi::Value toJs(jsi::Runtime &rt, craby::bridging::NullableString value) {
+  static jsi::Value toJs(jsi::Runtime &rt, craby::crabykv::bridging::NullableString value) {
     if (value.null) {
       return jsi::Value::null();
     }

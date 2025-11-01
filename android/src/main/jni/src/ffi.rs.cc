@@ -1029,26 +1029,29 @@ public:
 #endif
 
 namespace craby {
-  namespace bridging {
-    struct NullableString;
-    struct CrabyKv;
+  namespace crabykv {
+    namespace bridging {
+      struct NullableString;
+      struct CrabyKv;
+    }
   }
 }
 
 namespace craby {
+namespace crabykv {
 namespace bridging {
-#ifndef CXXBRIDGE1_STRUCT_craby$bridging$NullableString
-#define CXXBRIDGE1_STRUCT_craby$bridging$NullableString
+#ifndef CXXBRIDGE1_STRUCT_craby$crabykv$bridging$NullableString
+#define CXXBRIDGE1_STRUCT_craby$crabykv$bridging$NullableString
 struct NullableString final {
   bool null CXX_DEFAULT_VALUE(false);
   ::rust::String val;
 
   using IsRelocatable = ::std::true_type;
 };
-#endif // CXXBRIDGE1_STRUCT_craby$bridging$NullableString
+#endif // CXXBRIDGE1_STRUCT_craby$crabykv$bridging$NullableString
 
-#ifndef CXXBRIDGE1_STRUCT_craby$bridging$CrabyKv
-#define CXXBRIDGE1_STRUCT_craby$bridging$CrabyKv
+#ifndef CXXBRIDGE1_STRUCT_craby$crabykv$bridging$CrabyKv
+#define CXXBRIDGE1_STRUCT_craby$crabykv$bridging$CrabyKv
 struct CrabyKv final : public ::rust::Opaque {
   ~CrabyKv() = delete;
 
@@ -1059,128 +1062,129 @@ private:
     static ::std::size_t align() noexcept;
   };
 };
-#endif // CXXBRIDGE1_STRUCT_craby$bridging$CrabyKv
+#endif // CXXBRIDGE1_STRUCT_craby$crabykv$bridging$CrabyKv
 
 extern "C" {
-::std::size_t craby$bridging$cxxbridge1$CrabyKv$operator$sizeof() noexcept;
-::std::size_t craby$bridging$cxxbridge1$CrabyKv$operator$alignof() noexcept;
+::std::size_t craby$crabykv$bridging$cxxbridge1$CrabyKv$operator$sizeof() noexcept;
+::std::size_t craby$crabykv$bridging$cxxbridge1$CrabyKv$operator$alignof() noexcept;
 
-::craby::bridging::CrabyKv *craby$bridging$cxxbridge1$create_craby_kv(::std::size_t id, ::rust::Str data_path) noexcept;
+::craby::crabykv::bridging::CrabyKv *craby$crabykv$bridging$cxxbridge1$create_craby_kv(::std::size_t id, ::rust::Str data_path) noexcept;
 
-::rust::repr::PtrLen craby$bridging$cxxbridge1$craby_kv_clear(::craby::bridging::CrabyKv &it_) noexcept;
+::rust::repr::PtrLen craby$crabykv$bridging$cxxbridge1$craby_kv_clear(::craby::crabykv::bridging::CrabyKv &it_) noexcept;
 
-::rust::repr::PtrLen craby$bridging$cxxbridge1$craby_kv_contains(::craby::bridging::CrabyKv &it_, ::rust::Str key, bool *return$) noexcept;
+::rust::repr::PtrLen craby$crabykv$bridging$cxxbridge1$craby_kv_contains(::craby::crabykv::bridging::CrabyKv &it_, ::rust::Str key, bool *return$) noexcept;
 
-::rust::repr::PtrLen craby$bridging$cxxbridge1$craby_kv_get(::craby::bridging::CrabyKv &it_, ::rust::Str key, ::craby::bridging::NullableString *return$) noexcept;
+::rust::repr::PtrLen craby$crabykv$bridging$cxxbridge1$craby_kv_get(::craby::crabykv::bridging::CrabyKv &it_, ::rust::Str key, ::craby::crabykv::bridging::NullableString *return$) noexcept;
 
-::rust::repr::PtrLen craby$bridging$cxxbridge1$craby_kv_initialize(::craby::bridging::CrabyKv &it_) noexcept;
+::rust::repr::PtrLen craby$crabykv$bridging$cxxbridge1$craby_kv_initialize(::craby::crabykv::bridging::CrabyKv &it_) noexcept;
 
-::rust::repr::PtrLen craby$bridging$cxxbridge1$craby_kv_keys(::craby::bridging::CrabyKv &it_, ::rust::Vec<::rust::String> *return$) noexcept;
+::rust::repr::PtrLen craby$crabykv$bridging$cxxbridge1$craby_kv_keys(::craby::crabykv::bridging::CrabyKv &it_, ::rust::Vec<::rust::String> *return$) noexcept;
 
-::rust::repr::PtrLen craby$bridging$cxxbridge1$craby_kv_remove(::craby::bridging::CrabyKv &it_, ::rust::Str key) noexcept;
+::rust::repr::PtrLen craby$crabykv$bridging$cxxbridge1$craby_kv_remove(::craby::crabykv::bridging::CrabyKv &it_, ::rust::Str key) noexcept;
 
-::rust::repr::PtrLen craby$bridging$cxxbridge1$craby_kv_set(::craby::bridging::CrabyKv &it_, ::rust::Str key, ::rust::Str value) noexcept;
+::rust::repr::PtrLen craby$crabykv$bridging$cxxbridge1$craby_kv_set(::craby::crabykv::bridging::CrabyKv &it_, ::rust::Str key, ::rust::Str value) noexcept;
 
-::rust::repr::PtrLen craby$bridging$cxxbridge1$craby_kv_size(::craby::bridging::CrabyKv &it_, double *return$) noexcept;
+::rust::repr::PtrLen craby$crabykv$bridging$cxxbridge1$craby_kv_size(::craby::crabykv::bridging::CrabyKv &it_, double *return$) noexcept;
 } // extern "C"
 
 ::std::size_t CrabyKv::layout::size() noexcept {
-  return craby$bridging$cxxbridge1$CrabyKv$operator$sizeof();
+  return craby$crabykv$bridging$cxxbridge1$CrabyKv$operator$sizeof();
 }
 
 ::std::size_t CrabyKv::layout::align() noexcept {
-  return craby$bridging$cxxbridge1$CrabyKv$operator$alignof();
+  return craby$crabykv$bridging$cxxbridge1$CrabyKv$operator$alignof();
 }
 
-::rust::Box<::craby::bridging::CrabyKv> createCrabyKv(::std::size_t id, ::rust::Str data_path) noexcept {
-  return ::rust::Box<::craby::bridging::CrabyKv>::from_raw(craby$bridging$cxxbridge1$create_craby_kv(id, data_path));
+::rust::Box<::craby::crabykv::bridging::CrabyKv> createCrabyKv(::std::size_t id, ::rust::Str data_path) noexcept {
+  return ::rust::Box<::craby::crabykv::bridging::CrabyKv>::from_raw(craby$crabykv$bridging$cxxbridge1$create_craby_kv(id, data_path));
 }
 
-void clear(::craby::bridging::CrabyKv &it_) {
-  ::rust::repr::PtrLen error$ = craby$bridging$cxxbridge1$craby_kv_clear(it_);
+void clear(::craby::crabykv::bridging::CrabyKv &it_) {
+  ::rust::repr::PtrLen error$ = craby$crabykv$bridging$cxxbridge1$craby_kv_clear(it_);
   if (error$.ptr) {
     throw ::rust::impl<::rust::Error>::error(error$);
   }
 }
 
-bool contains(::craby::bridging::CrabyKv &it_, ::rust::Str key) {
+bool contains(::craby::crabykv::bridging::CrabyKv &it_, ::rust::Str key) {
   ::rust::MaybeUninit<bool> return$;
-  ::rust::repr::PtrLen error$ = craby$bridging$cxxbridge1$craby_kv_contains(it_, key, &return$.value);
+  ::rust::repr::PtrLen error$ = craby$crabykv$bridging$cxxbridge1$craby_kv_contains(it_, key, &return$.value);
   if (error$.ptr) {
     throw ::rust::impl<::rust::Error>::error(error$);
   }
   return ::std::move(return$.value);
 }
 
-::craby::bridging::NullableString get(::craby::bridging::CrabyKv &it_, ::rust::Str key) {
-  ::rust::MaybeUninit<::craby::bridging::NullableString> return$;
-  ::rust::repr::PtrLen error$ = craby$bridging$cxxbridge1$craby_kv_get(it_, key, &return$.value);
+::craby::crabykv::bridging::NullableString get(::craby::crabykv::bridging::CrabyKv &it_, ::rust::Str key) {
+  ::rust::MaybeUninit<::craby::crabykv::bridging::NullableString> return$;
+  ::rust::repr::PtrLen error$ = craby$crabykv$bridging$cxxbridge1$craby_kv_get(it_, key, &return$.value);
   if (error$.ptr) {
     throw ::rust::impl<::rust::Error>::error(error$);
   }
   return ::std::move(return$.value);
 }
 
-void initialize(::craby::bridging::CrabyKv &it_) {
-  ::rust::repr::PtrLen error$ = craby$bridging$cxxbridge1$craby_kv_initialize(it_);
+void initialize(::craby::crabykv::bridging::CrabyKv &it_) {
+  ::rust::repr::PtrLen error$ = craby$crabykv$bridging$cxxbridge1$craby_kv_initialize(it_);
   if (error$.ptr) {
     throw ::rust::impl<::rust::Error>::error(error$);
   }
 }
 
-::rust::Vec<::rust::String> keys(::craby::bridging::CrabyKv &it_) {
+::rust::Vec<::rust::String> keys(::craby::crabykv::bridging::CrabyKv &it_) {
   ::rust::MaybeUninit<::rust::Vec<::rust::String>> return$;
-  ::rust::repr::PtrLen error$ = craby$bridging$cxxbridge1$craby_kv_keys(it_, &return$.value);
+  ::rust::repr::PtrLen error$ = craby$crabykv$bridging$cxxbridge1$craby_kv_keys(it_, &return$.value);
   if (error$.ptr) {
     throw ::rust::impl<::rust::Error>::error(error$);
   }
   return ::std::move(return$.value);
 }
 
-void remove(::craby::bridging::CrabyKv &it_, ::rust::Str key) {
-  ::rust::repr::PtrLen error$ = craby$bridging$cxxbridge1$craby_kv_remove(it_, key);
+void remove(::craby::crabykv::bridging::CrabyKv &it_, ::rust::Str key) {
+  ::rust::repr::PtrLen error$ = craby$crabykv$bridging$cxxbridge1$craby_kv_remove(it_, key);
   if (error$.ptr) {
     throw ::rust::impl<::rust::Error>::error(error$);
   }
 }
 
-void set(::craby::bridging::CrabyKv &it_, ::rust::Str key, ::rust::Str value) {
-  ::rust::repr::PtrLen error$ = craby$bridging$cxxbridge1$craby_kv_set(it_, key, value);
+void set(::craby::crabykv::bridging::CrabyKv &it_, ::rust::Str key, ::rust::Str value) {
+  ::rust::repr::PtrLen error$ = craby$crabykv$bridging$cxxbridge1$craby_kv_set(it_, key, value);
   if (error$.ptr) {
     throw ::rust::impl<::rust::Error>::error(error$);
   }
 }
 
-double size(::craby::bridging::CrabyKv &it_) {
+double size(::craby::crabykv::bridging::CrabyKv &it_) {
   ::rust::MaybeUninit<double> return$;
-  ::rust::repr::PtrLen error$ = craby$bridging$cxxbridge1$craby_kv_size(it_, &return$.value);
+  ::rust::repr::PtrLen error$ = craby$crabykv$bridging$cxxbridge1$craby_kv_size(it_, &return$.value);
   if (error$.ptr) {
     throw ::rust::impl<::rust::Error>::error(error$);
   }
   return ::std::move(return$.value);
 }
 } // namespace bridging
+} // namespace crabykv
 } // namespace craby
 
 extern "C" {
-::craby::bridging::CrabyKv *cxxbridge1$box$craby$bridging$CrabyKv$alloc() noexcept;
-void cxxbridge1$box$craby$bridging$CrabyKv$dealloc(::craby::bridging::CrabyKv *) noexcept;
-void cxxbridge1$box$craby$bridging$CrabyKv$drop(::rust::Box<::craby::bridging::CrabyKv> *ptr) noexcept;
+::craby::crabykv::bridging::CrabyKv *cxxbridge1$box$craby$crabykv$bridging$CrabyKv$alloc() noexcept;
+void cxxbridge1$box$craby$crabykv$bridging$CrabyKv$dealloc(::craby::crabykv::bridging::CrabyKv *) noexcept;
+void cxxbridge1$box$craby$crabykv$bridging$CrabyKv$drop(::rust::Box<::craby::crabykv::bridging::CrabyKv> *ptr) noexcept;
 } // extern "C"
 
 namespace rust {
 inline namespace cxxbridge1 {
 template <>
-::craby::bridging::CrabyKv *Box<::craby::bridging::CrabyKv>::allocation::alloc() noexcept {
-  return cxxbridge1$box$craby$bridging$CrabyKv$alloc();
+::craby::crabykv::bridging::CrabyKv *Box<::craby::crabykv::bridging::CrabyKv>::allocation::alloc() noexcept {
+  return cxxbridge1$box$craby$crabykv$bridging$CrabyKv$alloc();
 }
 template <>
-void Box<::craby::bridging::CrabyKv>::allocation::dealloc(::craby::bridging::CrabyKv *ptr) noexcept {
-  cxxbridge1$box$craby$bridging$CrabyKv$dealloc(ptr);
+void Box<::craby::crabykv::bridging::CrabyKv>::allocation::dealloc(::craby::crabykv::bridging::CrabyKv *ptr) noexcept {
+  cxxbridge1$box$craby$crabykv$bridging$CrabyKv$dealloc(ptr);
 }
 template <>
-void Box<::craby::bridging::CrabyKv>::drop() noexcept {
-  cxxbridge1$box$craby$bridging$CrabyKv$drop(this);
+void Box<::craby::crabykv::bridging::CrabyKv>::drop() noexcept {
+  cxxbridge1$box$craby$crabykv$bridging$CrabyKv$drop(this);
 }
 } // namespace cxxbridge1
 } // namespace rust

@@ -5,16 +5,16 @@
 
 jint JNI_OnLoad(JavaVM *vm, void *reserved) {
   facebook::react::registerCxxModuleToGlobalModuleMap(
-    craby::crabykv::CxxCrabyKvModule::kModuleName,
+    craby::crabykv::modules::CxxCrabyKvModule::kModuleName,
     [](std::shared_ptr<facebook::react::CallInvoker> jsInvoker) {
-      return std::make_shared<craby::crabykv::CxxCrabyKvModule>(jsInvoker);
+      return std::make_shared<craby::crabykv::modules::CxxCrabyKvModule>(jsInvoker);
     });
   return JNI_VERSION_1_6;
 }
 
 extern "C"
 JNIEXPORT void JNICALL
-Java_com_crabykv_CrabyKvPackage_nativeSetDataPath(JNIEnv *env, jclass clazz, jstring jDataPath) {
+Java_rs_craby_crabykv_CrabyKvPackage_nativeSetDataPath(JNIEnv *env, jclass clazz, jstring jDataPath) {
   auto dataPath = std::string(env->GetStringUTFChars(jDataPath, nullptr));
-  craby::crabykv::CxxCrabyKvModule::dataPath = dataPath;
+  craby::crabykv::modules::CxxCrabyKvModule::dataPath = dataPath;
 }
