@@ -1,6 +1,6 @@
 {
   "name": "craby-kv",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Embedded-level lightweight key-value storage for React Native",
   "workspaces": [
     "example"
