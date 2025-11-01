@@ -36,7 +36,7 @@ target_link_libraries(cxx-craby-kv
 )
 
 # From ReactAndroid/cmake-utils/folly-flags.cmake
-target_compile_definitions(cxx-craby-test PRIVATE
+target_compile_definitions(cxx-craby-kv PRIVATE
   -DFOLLY_NO_CONFIG=1
   -DFOLLY_HAVE_CLOCK_GETTIME=1
   -DFOLLY_USE_LIBCPP=1

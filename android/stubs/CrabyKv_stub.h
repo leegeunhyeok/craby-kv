@@ -7,6 +7,6 @@
 namespace facebook::react {
 
 JSI_EXPORT
-std::shared_ptr<TurboModule> _stub_ModuleProvider(const std::string &moduleName, const JavaTurboModule::InitParams &params);
+std::shared_ptr<TurboModule> CrabyKv_stub_ModuleProvider(const std::string &moduleName, const JavaTurboModule::InitParams &params);
 
 } // namespace facebook::react
