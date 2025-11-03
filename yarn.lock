@@ -1542,90 +1542,90 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@craby/cli-bindings-darwin-arm64@npm:0.1.0-beta.6":
-  version: 0.1.0-beta.6
-  resolution: "@craby/cli-bindings-darwin-arm64@npm:0.1.0-beta.6"
+"@craby/cli-bindings-darwin-arm64@npm:0.1.0-beta.7":
+  version: 0.1.0-beta.7
+  resolution: "@craby/cli-bindings-darwin-arm64@npm:0.1.0-beta.7"
   conditions: os=darwin & cpu=arm64
   languageName: node
   linkType: hard
 
-"@craby/cli-bindings-darwin-x64@npm:0.1.0-beta.6":
-  version: 0.1.0-beta.6
-  resolution: "@craby/cli-bindings-darwin-x64@npm:0.1.0-beta.6"
+"@craby/cli-bindings-darwin-x64@npm:0.1.0-beta.7":
+  version: 0.1.0-beta.7
+  resolution: "@craby/cli-bindings-darwin-x64@npm:0.1.0-beta.7"
   conditions: os=darwin & cpu=x64
   languageName: node
   linkType: hard
 
-"@craby/cli-bindings-linux-arm-gnueabihf@npm:0.1.0-beta.6":
-  version: 0.1.0-beta.6
-  resolution: "@craby/cli-bindings-linux-arm-gnueabihf@npm:0.1.0-beta.6"
+"@craby/cli-bindings-linux-arm-gnueabihf@npm:0.1.0-beta.7":
+  version: 0.1.0-beta.7
+  resolution: "@craby/cli-bindings-linux-arm-gnueabihf@npm:0.1.0-beta.7"
   conditions: os=linux & cpu=arm
   languageName: node
   linkType: hard
 
-"@craby/cli-bindings-linux-arm64-gnu@npm:0.1.0-beta.6":
-  version: 0.1.0-beta.6
-  resolution: "@craby/cli-bindings-linux-arm64-gnu@npm:0.1.0-beta.6"
+"@craby/cli-bindings-linux-arm64-gnu@npm:0.1.0-beta.7":
+  version: 0.1.0-beta.7
+  resolution: "@craby/cli-bindings-linux-arm64-gnu@npm:0.1.0-beta.7"
   conditions: os=linux & cpu=arm64 & libc=glibc
   languageName: node
   linkType: hard
 
-"@craby/cli-bindings-linux-arm64-musl@npm:0.1.0-beta.6":
-  version: 0.1.0-beta.6
-  resolution: "@craby/cli-bindings-linux-arm64-musl@npm:0.1.0-beta.6"
+"@craby/cli-bindings-linux-arm64-musl@npm:0.1.0-beta.7":
+  version: 0.1.0-beta.7
+  resolution: "@craby/cli-bindings-linux-arm64-musl@npm:0.1.0-beta.7"
   conditions: os=linux & cpu=arm64 & libc=musl
   languageName: node
   linkType: hard
 
-"@craby/cli-bindings-linux-x64-gnu@npm:0.1.0-beta.6":
-  version: 0.1.0-beta.6
-  resolution: "@craby/cli-bindings-linux-x64-gnu@npm:0.1.0-beta.6"
+"@craby/cli-bindings-linux-x64-gnu@npm:0.1.0-beta.7":
+  version: 0.1.0-beta.7
+  resolution: "@craby/cli-bindings-linux-x64-gnu@npm:0.1.0-beta.7"
   conditions: os=linux & cpu=x64 & libc=glibc
   languageName: node
   linkType: hard
 
-"@craby/cli-bindings-linux-x64-musl@npm:0.1.0-beta.6":
-  version: 0.1.0-beta.6
-  resolution: "@craby/cli-bindings-linux-x64-musl@npm:0.1.0-beta.6"
+"@craby/cli-bindings-linux-x64-musl@npm:0.1.0-beta.7":
+  version: 0.1.0-beta.7
+  resolution: "@craby/cli-bindings-linux-x64-musl@npm:0.1.0-beta.7"
   conditions: os=linux & cpu=x64 & libc=musl
   languageName: node
   linkType: hard
 
-"@craby/cli-bindings-win32-arm64-msvc@npm:0.1.0-beta.6":
-  version: 0.1.0-beta.6
-  resolution: "@craby/cli-bindings-win32-arm64-msvc@npm:0.1.0-beta.6"
+"@craby/cli-bindings-win32-arm64-msvc@npm:0.1.0-beta.7":
+  version: 0.1.0-beta.7
+  resolution: "@craby/cli-bindings-win32-arm64-msvc@npm:0.1.0-beta.7"
   conditions: os=win32 & cpu=arm64
   languageName: node
   linkType: hard
 
-"@craby/cli-bindings-win32-ia32-msvc@npm:0.1.0-beta.6":
-  version: 0.1.0-beta.6
-  resolution: "@craby/cli-bindings-win32-ia32-msvc@npm:0.1.0-beta.6"
+"@craby/cli-bindings-win32-ia32-msvc@npm:0.1.0-beta.7":
+  version: 0.1.0-beta.7
+  resolution: "@craby/cli-bindings-win32-ia32-msvc@npm:0.1.0-beta.7"
   conditions: os=win32 & cpu=ia32
   languageName: node
   linkType: hard
 
-"@craby/cli-bindings-win32-x64-msvc@npm:0.1.0-beta.6":
-  version: 0.1.0-beta.6
-  resolution: "@craby/cli-bindings-win32-x64-msvc@npm:0.1.0-beta.6"
+"@craby/cli-bindings-win32-x64-msvc@npm:0.1.0-beta.7":
+  version: 0.1.0-beta.7
+  resolution: "@craby/cli-bindings-win32-x64-msvc@npm:0.1.0-beta.7"
   conditions: os=win32 & cpu=x64
   languageName: node
   linkType: hard
 
-"@craby/cli-bindings@npm:0.1.0-beta.6":
-  version: 0.1.0-beta.6
-  resolution: "@craby/cli-bindings@npm:0.1.0-beta.6"
+"@craby/cli-bindings@npm:0.1.0-beta.7":
+  version: 0.1.0-beta.7
+  resolution: "@craby/cli-bindings@npm:0.1.0-beta.7"
   dependencies:
-    "@craby/cli-bindings-darwin-arm64": "npm:0.1.0-beta.6"
-    "@craby/cli-bindings-darwin-x64": "npm:0.1.0-beta.6"
-    "@craby/cli-bindings-linux-arm-gnueabihf": "npm:0.1.0-beta.6"
-    "@craby/cli-bindings-linux-arm64-gnu": "npm:0.1.0-beta.6"
-    "@craby/cli-bindings-linux-arm64-musl": "npm:0.1.0-beta.6"
-    "@craby/cli-bindings-linux-x64-gnu": "npm:0.1.0-beta.6"
-    "@craby/cli-bindings-linux-x64-musl": "npm:0.1.0-beta.6"
-    "@craby/cli-bindings-win32-arm64-msvc": "npm:0.1.0-beta.6"
-    "@craby/cli-bindings-win32-ia32-msvc": "npm:0.1.0-beta.6"
-    "@craby/cli-bindings-win32-x64-msvc": "npm:0.1.0-beta.6"
+    "@craby/cli-bindings-darwin-arm64": "npm:0.1.0-beta.7"
+    "@craby/cli-bindings-darwin-x64": "npm:0.1.0-beta.7"
+    "@craby/cli-bindings-linux-arm-gnueabihf": "npm:0.1.0-beta.7"
+    "@craby/cli-bindings-linux-arm64-gnu": "npm:0.1.0-beta.7"
+    "@craby/cli-bindings-linux-arm64-musl": "npm:0.1.0-beta.7"
+    "@craby/cli-bindings-linux-x64-gnu": "npm:0.1.0-beta.7"
+    "@craby/cli-bindings-linux-x64-musl": "npm:0.1.0-beta.7"
+    "@craby/cli-bindings-win32-arm64-msvc": "npm:0.1.0-beta.7"
+    "@craby/cli-bindings-win32-ia32-msvc": "npm:0.1.0-beta.7"
+    "@craby/cli-bindings-win32-x64-msvc": "npm:0.1.0-beta.7"
   dependenciesMeta:
     "@craby/cli-bindings-darwin-arm64":
       optional: true
@@ -1647,7 +1647,7 @@ __metadata:
       optional: true
     "@craby/cli-bindings-win32-x64-msvc":
       optional: true
-  checksum: 10c0/0063ff3dccf4ab567b45332f147e6a8ce77e91d0d2c25f7e44ea52aef92f10e552038189b41c2e6e96a72c96092469108fa555186fe0f4185fe21320b17c1a4d
+  checksum: 10c0/72a1e15f4e4c2ecf8854ec8d9b4dc0ce85a4bb03f7b0f4e57a2292b7782e208caad648192d471a9faacb419d8da759a877bafef4755171a3d463bda492edb342
   languageName: node
   linkType: hard
 
@@ -4292,8 +4292,8 @@ __metadata:
     "@biomejs/biome": "npm:2.2.7"
     "@react-native-community/cli-types": "npm:^20.0.2"
     "@types/react": "npm:^19.0.0"
-    craby-modules: "npm:^0.1.0-beta.6"
-    crabygen: "npm:^0.1.0-beta.6"
+    craby-modules: "npm:^0.1.0-beta.7"
+    crabygen: "npm:^0.1.0-beta.7"
     react: "npm:19.1.1"
     react-native: "npm:0.82.1"
     tsdown: "npm:^0.15.10"
@@ -4304,27 +4304,27 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"craby-modules@npm:^0.1.0-beta.6":
-  version: 0.1.0-beta.6
-  resolution: "craby-modules@npm:0.1.0-beta.6"
+"craby-modules@npm:^0.1.0-beta.7":
+  version: 0.1.0-beta.7
+  resolution: "craby-modules@npm:0.1.0-beta.7"
   peerDependencies:
     react-native: ">=0.76.0"
-  checksum: 10c0/23521573cc55b370e5e2c9cfab81ca5ade01baeb3a8d6b60c1f6ca2a7edd0c21d932d6176949b5e3d033b579f10fadff69fd8c464a4e8052743262943ca29f2e
+  checksum: 10c0/9ed7d954edd409bf270d8f97ed3f16fd9a56bc8dfd65a1c58295721f9d22c7ccb6cfa8ca4f92c98c348d02601f40dddcfe314c29baa747aadec5fb863179d04a
   languageName: node
   linkType: hard
 
-"crabygen@npm:^0.1.0-beta.6":
-  version: 0.1.0-beta.6
-  resolution: "crabygen@npm:0.1.0-beta.6"
+"crabygen@npm:^0.1.0-beta.7":
+  version: 0.1.0-beta.7
+  resolution: "crabygen@npm:0.1.0-beta.7"
   dependencies:
     "@commander-js/extra-typings": "npm:^14.0.0"
-    "@craby/cli-bindings": "npm:0.1.0-beta.6"
+    "@craby/cli-bindings": "npm:0.1.0-beta.7"
     commander: "npm:^14.0.1"
     es-toolkit: "npm:^1.39.10"
   bin:
     craby: ./bin-craby.js
     crabygen: ./bin.js
-  checksum: 10c0/414fca5cf41e475b2335a024ef12596bbbadf3e8198f7d96d71ec81b74f278bff3a55af033d155a277b4c7c2cd174a739e14500f8cc8807db0b77d4a84620bcd
+  checksum: 10c0/24e884d23839005e42b31c627c381ed032aac3e5dfaf63875a8e89a9d8fd61117da6cbdecf9b4387cfec9379867db67c59f286ff7aac6d0df8cd2ce6f2404b40
   languageName: node
   linkType: hard
 
