@@ -28,6 +28,9 @@ pub mod bridging {
         #[cxx_name = "contains"]
         fn craby_kv_contains(it_: &mut CrabyKv, key: &str) -> Result<bool>;
 
+        #[cxx_name = "flush"]
+        fn craby_kv_flush(it_: &mut CrabyKv) -> Result<()>;
+
         #[cxx_name = "get"]
         fn craby_kv_get(it_: &mut CrabyKv, key: &str) -> Result<NullableString>;
 
@@ -64,6 +67,13 @@ fn craby_kv_clear(it_: &mut CrabyKv) -> Result<(), anyhow::Error> {
 fn craby_kv_contains(it_: &mut CrabyKv, key: &str) -> Result<bool, anyhow::Error> {
     craby::catch_panic!({
         let ret = it_.contains(key);
+        ret
+    })
+}
+
+fn craby_kv_flush(it_: &mut CrabyKv) -> Result<(), anyhow::Error> {
+    craby::catch_panic!({
+        let ret = it_.flush();
         ret
     })
 }

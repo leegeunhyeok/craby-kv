@@ -68,7 +68,9 @@ impl CrabyKvSpec for CrabyKv {
         self.get_db()
             .insert(key, value.as_bytes())
             .expect("Failed to insert value");
+    }
 
+    fn flush(&mut self) -> Void {
         self.get_db().flush().expect("Failed to flush data to disk");
     }
 

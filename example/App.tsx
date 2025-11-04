@@ -46,6 +46,7 @@ function App() {
 
   const handleSetValue = () => {
     KV.set(LATEST_KEY, latestValue);
+    KV.flush();
     Alert.alert('Value updated successfully!', 'Restart the app to load the changes:\n' + JSON.stringify(KV.get(LATEST_KEY)));
   };
 

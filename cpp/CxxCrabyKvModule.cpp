@@ -26,6 +26,7 @@ CxxCrabyKvModule::CxxCrabyKvModule(
   threadPool_ = std::make_shared<craby::crabykv::utils::ThreadPool>(10);
   methodMap_["clear"] = MethodMetadata{0, &CxxCrabyKvModule::clear};
   methodMap_["contains"] = MethodMetadata{1, &CxxCrabyKvModule::contains};
+  methodMap_["flush"] = MethodMetadata{0, &CxxCrabyKvModule::flush};
   methodMap_["get"] = MethodMetadata{1, &CxxCrabyKvModule::get};
   methodMap_["initialize"] = MethodMetadata{0, &CxxCrabyKvModule::initialize};
   methodMap_["keys"] = MethodMetadata{0, &CxxCrabyKvModule::keys};
@@ -93,6 +94,29 @@ jsi::Value CxxCrabyKvModule::contains(jsi::Runtime &rt,
     auto ret = craby::crabykv::bridging::contains(*it_, arg0);
 
     return react::bridging::toJs(rt, ret);
+  } catch (const jsi::JSError &err) {
+    throw err;
+  } catch (const std::exception &err) {
+    throw jsi::JSError(rt, craby::crabykv::utils::errorMessage(err));
+  }
+}
+
+jsi::Value CxxCrabyKvModule::flush(jsi::Runtime &rt,
+                                react::TurboModule &turboModule,
+                                const jsi::Value args[],
+                                size_t count) {
+  auto &thisModule = static_cast<CxxCrabyKvModule &>(turboModule);
+  auto callInvoker = thisModule.callInvoker_;
+  auto it_ = thisModule.module_;
+
+  try {
+    if (0 != count) {
+      throw jsi::JSError(rt, "Expected 0 argument");
+    }
+
+    craby::crabykv::bridging::flush(*it_);
+
+    return jsi::Value::undefined();
   } catch (const jsi::JSError &err) {
     throw err;
   } catch (const std::exception &err) {

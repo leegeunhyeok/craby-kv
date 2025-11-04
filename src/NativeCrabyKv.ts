@@ -8,6 +8,7 @@ interface Spec extends NativeModule {
   remove(key: string): void;
   keys(): string[];
   contains(key: string): boolean;
+  flush(): void;
   clear(): void;
   size(): number;
 }

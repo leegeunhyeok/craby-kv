@@ -1074,6 +1074,8 @@ extern "C" {
 
 ::rust::repr::PtrLen craby$crabykv$bridging$cxxbridge1$craby_kv_contains(::craby::crabykv::bridging::CrabyKv &it_, ::rust::Str key, bool *return$) noexcept;
 
+::rust::repr::PtrLen craby$crabykv$bridging$cxxbridge1$craby_kv_flush(::craby::crabykv::bridging::CrabyKv &it_) noexcept;
+
 ::rust::repr::PtrLen craby$crabykv$bridging$cxxbridge1$craby_kv_get(::craby::crabykv::bridging::CrabyKv &it_, ::rust::Str key, ::craby::crabykv::bridging::NullableString *return$) noexcept;
 
 ::rust::repr::PtrLen craby$crabykv$bridging$cxxbridge1$craby_kv_initialize(::craby::crabykv::bridging::CrabyKv &it_) noexcept;
@@ -1113,6 +1115,13 @@ bool contains(::craby::crabykv::bridging::CrabyKv &it_, ::rust::Str key) {
     throw ::rust::impl<::rust::Error>::error(error$);
   }
   return ::std::move(return$.value);
+}
+
+void flush(::craby::crabykv::bridging::CrabyKv &it_) {
+  ::rust::repr::PtrLen error$ = craby$crabykv$bridging$cxxbridge1$craby_kv_flush(it_);
+  if (error$.ptr) {
+    throw ::rust::impl<::rust::Error>::error(error$);
+  }
 }
 
 ::craby::crabykv::bridging::NullableString get(::craby::crabykv::bridging::CrabyKv &it_, ::rust::Str key) {

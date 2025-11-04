@@ -84,6 +84,7 @@ KV.contains('key'); // true
 KV.keys(); // ['key']
 KV.size(); // 1
 KV.remove('key');
+KV.flush(); // Write date to disk
 KV.clear();
 ```
 

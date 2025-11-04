@@ -1007,6 +1007,8 @@ void clear(::craby::crabykv::bridging::CrabyKv &it_);
 
 bool contains(::craby::crabykv::bridging::CrabyKv &it_, ::rust::Str key);
 
+void flush(::craby::crabykv::bridging::CrabyKv &it_);
+
 ::craby::crabykv::bridging::NullableString get(::craby::crabykv::bridging::CrabyKv &it_, ::rust::Str key);
 
 void initialize(::craby::crabykv::bridging::CrabyKv &it_);
